@@ -4,32 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Blog</title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/下雨.js"></script>
+    <script src="https://cdn.dowebok.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/least.min.js"></script>
+    <script src="js/jquery.lazyload.js"></script>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden;
         }
         header {
             background-color: #333;
             color: #fff;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
+            animation: fadeInDown 1s;
         }
         .container {
             max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
+            margin: 3rem auto;
+            padding: 2rem;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeInUp 1s;
         }
         h1 {
             color: #333;
         }
+        h2 {
+            color: #555;
+        }
         p {
             line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 1rem 0;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            transition: color 0.3s;
+        }
+        ul li a:hover {
+            color: #0056b3;
         }
         footer {
             text-align: center;
@@ -39,16 +67,55 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            animation: fadeInUp 1s;
+        }
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fadeIn {
+            animation-name: fadeIn;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
+    <!--动画特效-->
+    <script>Rain({ speed: [2, 15], hasBounce: true, wind_direction: 200, gravity: 0.05, maxNum: 80, numLevel: 5, drop_chance: 0.4, cloud: true });</script>
     <header>
         <h1>Welcome to My Blog</h1>
     </header>
-    <div class="container">
+    <div class="container animated fadeIn">
         <h2>About Me</h2>
-        <p>Hello! I'm [Your Name], a [Your Profession/Interest]. This is my personal blog where I share my thoughts, experiences, and projects. Feel free to explore and connect with me!</p>
+        <p>Hello! I'm ynzhu, a college student. This is my personal blog where I share my thoughts, experiences, and projects. Feel free to explore and connect with me!</p>
         
         <h2>Latest Posts</h2>
         <ul>
@@ -58,7 +125,7 @@
         </ul>
     </div>
     <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        <p>&copy;  All rights reserved.</p>
     </footer>
 </body>
 </html>
